@@ -197,7 +197,7 @@ def raw_data(df):
         # Check if response is yes, print the raw data and increment count by 5
         if answer=='yes':
             print(df[count:count+5])
-            count+=5
+            count=count+5
         # otherwise break
         else:
             break
