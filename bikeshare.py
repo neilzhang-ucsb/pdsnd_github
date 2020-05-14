@@ -67,7 +67,12 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    df = pd.read_csv(CITY_DATA[city])
+    while True:
+        try:
+            df = pd.read_csv(CITY_DATA[city])
+            break
+        except:
+            print("Oops!  City file doesn't exist.  Try again...")
 
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
