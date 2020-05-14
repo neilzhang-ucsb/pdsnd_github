@@ -67,7 +67,12 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    df = pd.read_csv(CITY_DATA[city])
+    while True:
+        try:
+            df = pd.read_csv(CITY_DATA[city])
+            break
+        except:
+            print("Oops!  City file doesn't exist.  Try again...")
 
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -113,7 +118,7 @@ def time_stats(df):
     print('Most Frequent Start Hour:', popular_hour)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('-'*45)
 
 
 def station_stats(df):
@@ -136,7 +141,7 @@ def station_stats(df):
     print('Most Commonly Used Combination of Start and End Station:', popular_combination)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('-'*45)
 
 
 def trip_duration_stats(df):
@@ -192,7 +197,7 @@ def raw_data(df):
         # Check if response is yes, print the raw data and increment count by 5
         if answer=='yes':
             print(df[count:count+5])
-            count+=5
+            count=count+5
         # otherwise break
         else:
             break
