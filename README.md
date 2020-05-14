@@ -9,6 +9,7 @@ Use Python to understand bikeshare data from chicago, new york city and washingt
 
 ### Files used
 bikeshare.py
+Run in the terminal
 
 ### Credits
 Udacity Data Science Nanodegree project
